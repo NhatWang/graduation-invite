@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang Admin RSVP</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fc;
+      padding: 20px;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    th, td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    th {
+      background-color: #ffd166;
+      color: #000;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .status-yes {
+      color: green;
+      font-weight: bold;
+    }
+    .status-no {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Danh sách Lời chúc & Xác nhận Tham dự</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên</th>
+        <th>Lời chúc</th>
+        <th>Tham dự</th>
+      </tr>
+    </thead>
+    <tbody id="rsvpTableBody">
+      <!-- Dữ liệu sẽ được thêm ở đây -->
+    </tbody>
+  </table>
+
+  <script>
+    fetch('http://localhost:4000/admin') // Thay bằng URL server thật
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.getElementById('rsvpTableBody');
+        data.forEach(item => {
+          const row = document.createElement('tr');
+
+          const nameCell = document.createElement('td');
+          nameCell.textContent = item.name || 'Ẩn danh';
+          row.appendChild(nameCell);
+
+          const messageCell = document.createElement('td');
+          messageCell.textContent = item.message || '(Không có lời chúc)';
+          row.appendChild(messageCell);
+
+          const attendingCell = document.createElement('td');
+          attendingCell.textContent = item.attending === 'yes' ? '✔ Tham dự' : '✖ Vắng mặt';
+          attendingCell.className = item.attending === 'yes' ? 'status-yes' : 'status-no';
+          row.appendChild(attendingCell);
+
+          tbody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        document.getElementById('rsvpTableBody').innerHTML = '<tr><td colspan="3">Không tải được dữ liệu.</td></tr>';
+        console.error('Lỗi khi tải dữ liệu:', error);
+      });
+  </script>
+
+</body>
+</html>

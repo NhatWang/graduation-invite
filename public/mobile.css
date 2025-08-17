@@ -1,0 +1,175 @@
+/* mobile.css – chỉ áp dụng cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .half-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .half-content {
+    padding: 24px;
+    text-align: center;
+  }
+
+  .half-image img {
+    height: 550px;
+    object-fit: cover;
+  }
+
+  .text-overlay, .invite-inside {
+    position: static;
+    margin-top: 24px;
+    padding: 0 16px;
+  }
+
+  .highlight-title {
+    font-size: 28px;
+  }
+  .graduation-info {
+    margin: 10px 0;
+  }
+
+  .subtitle,
+  .date-title {
+    font-size: 18px;
+  }
+  .mobile-only {
+  display: block;
+}
+ .desktop-only {
+    display: none;
+ }
+  .mobile-line {
+  width: 60%;
+  margin: 0px auto 0px;
+  border: none;
+  border-top: 2px solid #000;
+  opacity: 0.8;
+    }
+
+  .invite {
+    font-size: 50px;
+  }
+
+  .highlight {
+    font-size: 36px;
+  }
+
+  .location {
+    font-size: 20px;
+  }
+
+  .address {
+    font-size: 12px;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .custom-line {
+  width: 60%;
+  margin: 10px auto 0px;
+  border: none;
+  border-top: 2px solid #000;
+  opacity: 0.8;
+}
+.month-title {
+  font-family: 'FzAlphaBrights', cursive;
+  font-size: 30px;
+  margin: 16px 0;
+}
+
+  .date {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .timeline-title {
+    font-size: 32px;
+  }
+
+  .timeline-item {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .rsvp-icon {
+    width: 40%;
+  }
+
+  .rsvp-title {
+    font-size: 35px;
+  }
+
+  .rsvp-title-wrapper {
+    gap: 24px;
+    flex-direction: row;
+  }
+
+  .rsvp-form input,
+  .rsvp-form textarea,
+  .rsvp-form select {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .rsvp-form button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .countdown {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  gap: 15px;
+  letter-spacing: 2px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-right: 2px solid #000;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
+  max-width: 300px;
+
+  }
+
+  .time-labels {
+    gap: 62px;
+    font-size: 12px;
+  }
+
+  .thankyou-footer {
+    height: 180px;
+  }
+
+  .footer-text {
+    font-size: 40px;
+  }
+  .footer-text.mobile-only {
+  left: 20%;
+  transform: translate(-20%, -50%);
+  text-align: left;
+}
+
+  #toast-container {
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+  .footer-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  .toast {
+    min-width: auto;
+    width: 90vw;
+    font-size: 14px;
+    text-align: center;
+  }
+}
