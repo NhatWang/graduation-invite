@@ -61,15 +61,22 @@
       </tr>
     </thead>
     <tbody id="rsvpTableBody">
-      <!-- Dữ liệu sẽ được thêm ở đây -->
+      <tr><td colspan="3">Đang tải dữ liệu...</td></tr>
     </tbody>
   </table>
 
   <script>
-    fetch('https://graduation-invite-jnuv.onrender.com/admin') // Thay bằng URL server thật
+    fetch('https://graduation-invite-jnuv.onrender.com/admin')
       .then(res => res.json())
       .then(data => {
         const tbody = document.getElementById('rsvpTableBody');
+        tbody.innerHTML = '';
+
+        if (!Array.isArray(data) || data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="3">Không có dữ liệu.</td></tr>';
+          return;
+        }
+
         data.forEach(item => {
           const row = document.createElement('tr');
 
@@ -90,7 +97,8 @@
         });
       })
       .catch(error => {
-        document.getElementById('rsvpTableBody').innerHTML = '<tr><td colspan="3">Không tải được dữ liệu.</td></tr>';
+        const tbody = document.getElementById('rsvpTableBody');
+        tbody.innerHTML = '<tr><td colspan="3">Không tải được dữ liệu.</td></tr>';
         console.error('Lỗi khi tải dữ liệu:', error);
       });
   </script>
