@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         attending: form.attendance.value,
       };
 
-      await fetch('http://localhost:4000/rsvp', {
+      await fetch('https://graduation-invite-jnuv.onrender.com/rsvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
