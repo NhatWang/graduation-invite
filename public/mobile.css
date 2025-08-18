@@ -177,6 +177,7 @@
   .rsvp-form button {
     font-size: 14px;
     padding: 12px;
+    color: #000;
   }
   .rsvp-form button:hover {
   background: #000;
