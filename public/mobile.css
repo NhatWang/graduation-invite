@@ -1,5 +1,12 @@
 /* mobile.css – chỉ áp dụng cho màn hình nhỏ */
 @media (max-width: 768px) {
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+
   .half-layout {
     flex-direction: column;
     height: auto;
@@ -88,10 +95,64 @@
     font-size: 32px;
   }
 
-  .timeline-item {
-    max-width: 100%;
-    justify-content: center;
-  }
+  .timeline-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* Căn giữa theo chiều ngang */
+  gap: 10px;
+}
+.timeline-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 12px 0;
+  width: 100%;
+  max-width: 280px;      /* THÊM dòng này để không quá rộng */
+}
+
+  .date-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.date-block {
+  text-align: center;
+  color: #000;
+}
+
+.label {
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.main-label {
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.value {
+  font-size: 22px;
+  margin: 15px 0;
+}
+.main-value {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 15px 0;
+  color: #d32f2f;
+}
+.divider {
+  width: 0.15rem;
+  height: 100px;
+  background-color: #000;
+}
 
   .rsvp-icon {
     width: 40%;
